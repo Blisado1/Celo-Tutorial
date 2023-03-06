@@ -1,2 +1,1 @@
-# Celo-Tutorial
-Coding tutorial on CELO
+# Writing your first Smart contract in Vyper
