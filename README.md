@@ -142,7 +142,8 @@ Functions in vyper as in solidity can also be called based on their visibility a
   - `@payable`: may read from and write to the contract state, and can receive Ether.
 
 - visibility: functions with the `@external` decorator can only be called from transactions and other smart contracts, while the functions with the `@internal`  decorator can only be called from inside this contract.
-        @external
+
+       @external
         def sum(x: uint256, y: uint256) -> (uint256):
             return x + y
 
