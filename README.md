@@ -476,17 +476,21 @@ Now you might wonder, why do I have to install vyper on my machine when all it d
 Instead Remix suggests that we use our local compiler to compile our contracts instead, so we can still link our local machine to remix, meaning we can compile the contract with the version of vyper that exists on our compiler. This part would be the last bit of our tutorial. Think of it as the "freebie" for following the tutorial up to this point.
 
 So lets deploy to the celo alfajores network using the compiled data from the remote compiler, as this is only for "testing purposes".
+
 ![deploy](assets/deploy.gif)
 
 ### Testing SmartContract
 
 - Testing the `writeProduct` function
+
 ![write](assets/writeProduct.gif)
 
 - Testing the `readProduct` function
+
 ![read](assets/readProduct.gif)
 
-- Testing the `buyProduction` function
+- Testing the `buyProduct` function
+
 ![buy](assets/buyProduct.gif)
 
 ## (FREEBIE) Setting up the local compiler for remix
