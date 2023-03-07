@@ -464,6 +464,8 @@ Copy the code of your marketplace.vy from your machine and paste it inside the f
 
 Install the Vyper remix plugin, this allows us to compile the vyper contract, it outputs the bytecode as well as the abi for the smart contract.
 
+![compile](assets/compile.gif)
+
 Now you might wonder, why do I have to install vyper on my machine when all it does is return the bytecode, while remix can give me both the abi and the bytecode?
 
 1. The Vyper plugin on remix does not show a proper representation of the error messages if the code fails to compile unlike the local compiler on your machine.
@@ -473,6 +475,18 @@ Now you might wonder, why do I have to install vyper on my machine when all it d
 
 Instead Remix suggests that we use our local compiler to compile our contracts instead, so we can still link our local machine to remix, meaning we can compile the contract with the version of vyper that exists on our compiler. This part would be the last bit of our tutorial. Think of it as the "freebie" for following the tutorial up to this point.
 
-So lets compile with the remote compile and deploy to the celo alfajores network, as this is only for "testing purposes":
+So lets deploy to the celo alfajores network using the compiled data from the remote compiler, as this is only for "testing purposes".
+![deploy](assets/deploy.gif)
+
+### Testing SmartContract
+
+- Testing the `writeProduct` function
+![write](assets/writeProduct.gif)
+
+- Testing the `readProduct` function
+![read](assets/readProduct.gif)
+
+- Testing the `buyProduction` function
+![buy](assets/buyProduct.gif)
 
 ## (FREEBIE) Setting up the local compiler for remix
