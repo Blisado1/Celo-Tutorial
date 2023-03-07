@@ -456,7 +456,7 @@ Great you've written you first contract in Vyper. Cheers 🎉.
 ## Compiling And Deploying the Contract
 
 Compiling the contract is pretty straightforward once you have successfully installed vyper on your machine. All you just need to do is to run the command `vyper <pathToFile>`. The output you get is the bytecode of the contract.
-![bycode](bytecode.png)
+![bycode](bytcode.png)
 
 Now let's go to [remix](remix.ethereum.org), create a new file, name it `marketplace.vy` and open it.
 
