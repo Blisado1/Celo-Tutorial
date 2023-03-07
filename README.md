@@ -216,7 +216,7 @@ Vyper requires the Python 3.6 or higher installed on your machine, you can check
 python --version
 ```
 
-if python is not installed or you don't have the specified version, you can download and install it from [Python's official website]("")
+if python is not installed or you don't have the specified version, you can download and install it from [Python's official website](https://www.python.org/downloads/)
 
 From the Vyper documentation, we're advised to install vyper is a virtual environment so as not to allow the vyper dependencies mess with our local machine.
 
