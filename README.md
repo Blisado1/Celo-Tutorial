@@ -43,7 +43,7 @@ Here's a quick overview of the vyper language syntax.
 - String
     `s: String[100]`  This means it can contain only 100 items
 - Struct
-- 
+
 ```
 struct Person:
     name: String[100]
