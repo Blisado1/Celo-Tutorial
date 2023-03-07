@@ -201,7 +201,7 @@ Both options do the same thing, but raise might be a better choice if the condit
 
 To learn more about error handling check the doc [here]("")
 
-## Writing A Marketplace contract in Vyper
+## Writing the Contract in Vyper
 
 ### Setting up Environment
 
@@ -388,3 +388,67 @@ def getProductsLength()->(uint256):
 
 This function is a simple view function that returns the total number of products existing on the contract.
 
+Now the final contract `marketplace.vy` looks like this
+
+```vyper
+#@ version ^0.2.0
+
+productsLength: uint256
+
+struct Product:
+    owner: address
+    name: String[100]
+    image: String[100]
+    description: String[1000]
+    location: String[100]
+    price: uint256
+    sold: uint256
+
+products: HashMap[uint256, Product]
+
+@external
+def writeProduct(_name: String[100], _image: String[100], _description: String[1000], _location: String[100], _price: uint256):
+    _sold: uint256 = 0
+
+    _productLength: uint256 = self.productsLength
+
+    self.products[_productLength] = Product({
+        owner: msg.sender,
+        name: _name,
+        image: _image,
+        description: _description,
+        location: _location,
+        price: _price,
+        sold: _sold
+    })
+    self.productsLength += 1
+
+@view
+@external
+def readProduct(_index: uint256)->(address, String[100], String[100], String[1000], String[100], uint256, uint256):
+    return(
+        self.products[_index].owner,
+        self.products[_index].name,
+        self.products[_index].image,
+        self.products[_index].description,
+        self.products[_index].location,
+        self.products[_index].price,
+        self. products[_index].sold
+    )
+
+@payable
+@external
+def buyProduct(_index: uint256):
+    assert self.products[_index].price == msg.value, "Invalid amount"
+    
+    send(self.products[_index].owner, self.products[_index].price)
+    # (bool success, ) = payable(owner).call{value: msg.value}("");
+    self.products[_index].sold += 1
+
+@view
+@external
+def getProductsLength()->(uint256):
+    return self.productsLength
+```
+
+## Compiling the Contract
