@@ -2,9 +2,32 @@
 
 ## Introduction
 
+In this tutorial we will be learning about the Vyper programming language
+
+- Learn about the vyper syntaxes
+- Write a simple smart contract in vyper
+- Learn how to compile and deploy vyper contracts
+
+## Tech Stack
+
+We will use the following tools and languages in this tutorial
+
+1. Remix IDE
+2. VSCode
+3. A web browser
+4. Vyper
+
+## Prerequisites
+
+- Basic knowledge of programming with Solidity
+- Basic knowledge of using Remix
+
+## What is Vyper?
+
 Vyper is a Pythonic smart contract programming language created in 2017 as a readable and secure alternative to Solidity for writing EVM smart contracts. It was designed to improve upon Solidity, by limiting unsafe practices and enhancing readability; Vyper seeks to optimize the security and auditability of smart contract and also to make it virtually impossible for developers to code misleading programs.
 
 Following are the features of Vyper:
+
 - Bounds and overflow checking: On array accesses and arithmetic.
 - Support for signed integers and decimal fixed-point numbers
 - Decidability: It is possible to compute a precise upper bound for the gas consumption of any Vyper function call.
@@ -14,6 +37,7 @@ Following are the features of Vyper:
 
 Vyper vs Solidity:
 In it's aim to provide a much more secure contract writing expere here are some of the Solidity features which Vyper omits:
+
 - Overflow
 - Unbounded arrays
 - Infinite Loops
@@ -26,6 +50,7 @@ In it's aim to provide a much more secure contract writing expere here are some 
 Here's a quick overview of the vyper language syntax.
 
 ### Data types
+
 - Boolean -> True or False
     `b: bool`
 - int128 -> -2**127 to  2**127 - 1
@@ -50,13 +75,13 @@ struct Person:
     age: uint256
 ```
 
- - Arrays
+- Arrays
 
 ```
 <arrName>: <dataType>[<maxNumberofElements>]
 # For example
 myNums: uint256[100]
-```    
+```
 
 - Mapping
 
@@ -68,7 +93,7 @@ myMap: HashMap[address, uint256]
 
 - Constants: once set It can never be change
 
-``` 
+```
 <constantName>: Constant(<type>) = <value>
 # For example
 maxTickets: Constanct(uint256) = 100
@@ -81,7 +106,7 @@ Vyper also has some inbuilt constants like `ZERO_ADDRESS`, `MAX_UINT256` etc.
 - State Variables are variables that are stored on the blockchain
 
   - We can specify if a state variable is public by adding the key word `public`
-        
+
         # public variable
         name: public(uint256)
 
@@ -95,12 +120,12 @@ Vyper also has some inbuilt constants like `ZERO_ADDRESS`, `MAX_UINT256` etc.
 - Local variables are the ones we can find in functions
 
 - Enviromental variables in Vyper
-    * `self.balance`: returns the contract balance
-    * `msg.sender`: returns the sender of a transaction
-    * `msg.value`: returns the value attached to a transaction
-    * `block.number`: current block number of the transaction
-    * `block.timestamp`: timestamp when transaction was made
-    * `tx-origin`: address of the original caller
+  - `self.balance`: returns the contract balance
+  - `msg.sender`: returns the sender of a transaction
+  - `msg.value`: returns the value attached to a transaction
+  - `block.number`: current block number of the transaction
+  - `block.timestamp`: timestamp when transaction was made
+  - `tx-origin`: address of the original caller
 
 ### Functions
 
@@ -114,6 +139,7 @@ Vyper also has some inbuilt constants like `ZERO_ADDRESS`, `MAX_UINT256` etc.
 - visibility: who can call the contract -> `@external, @internal`. It does not have the public or private visibility. internal only from inside this contract.
 
 ### Constructor
+
 For constructors in vyper we use the `__init__` function to set the intial state of a contract on deploy
 
     maxNoOfPlayers: public(uint256)
@@ -135,6 +161,7 @@ One common use of events is to send notifications to our user interfaces. Here i
 The indexed keyword allows us to be able to filter out the event by a partiucular value and in this case we can filter by the sender address or the receiver address
 
 - To call events
+
     ```python
     # Log the sell event.
     log Transfer(msg.sender, to, sell_order)
@@ -148,7 +175,7 @@ Say we wanted to set a condition for a transaction to be valid in solidity, we'd
 
 - assert
 
-``` 
+```
 # check if owner is msg.sender
 assert self.owner == msg.sender, "!owner"
 ```
@@ -166,3 +193,4 @@ Both options do the same thing, but raise might be a better choice if the condit
 To learn more about error handling check the doc [here]("")
 
 ## Writing A Marketplace contract in Vyper
+
