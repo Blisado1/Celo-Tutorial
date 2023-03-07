@@ -92,12 +92,12 @@ Vyper also has some inbuilt constants like `ZERO_ADDRESS`, `MAX_UINT256` etc.
 - Local variables are the ones we can find in functions
 
 - Enviromental variables in Vyper
-    `self.balance`: returns the contract balance
-    `msg.sender`: returns the sender of a transaction
-    `msg.value`: returns the value attached to a transaction
-    `block.number`: current block number of the transaction
-    `block.timestamp`: timestamp when transaction was made
-    `tx-origin`: address of the original caller
+    * `self.balance`: returns the contract balance
+    * `msg.sender`: returns the sender of a transaction
+    * `msg.value`: returns the value attached to a transaction
+    * `block.number`: current block number of the transaction
+    * `block.timestamp`: timestamp when transaction was made
+    * `tx-origin`: address of the original caller
 
 ### Functions
 
