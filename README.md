@@ -451,4 +451,28 @@ def getProductsLength()->(uint256):
     return self.productsLength
 ```
 
-## Compiling the Contract
+Great you've written you first contract in Vyper. Cheers 🎉.
+
+## Compiling And Deploying the Contract
+
+Compiling the contract is pretty straightforward once you have successfully installed vyper on your machine. All you just need to do is to run the command `vyper <pathToFile>`. The output you get is the bytecode of the contract.
+![bycode](images/bytecode.png)
+
+Now let's go to [remix](remix.ethereum.org), create a new file, name it `marketplace.vy` and open it.
+
+Copy the code of your marketplace.vy from your machine and paste it inside the file on remix.
+
+Install the Vyper remix plugin, this allows us to compile the vyper contract, it outputs the bytecode as well as the abi for the smart contract.
+
+Now you might wonder, why do I have to install vyper on my machine when all it does is return the bytecode, while remix can give me both the abi and the bytecode?
+
+1. The Vyper plugin on remix does not show a proper representation of the error messages if the code fails to compile unlike the local compiler on your machine.
+2. There have been cases of downtime for the remix compiler.
+3. Even remix warns us from using the remote compiler for production purposes, it clearly states it should be for testing purposes.
+![warning](images/warning.png)
+
+Instead Remix suggests that we use our local compiler to compile our contracts instead, so we can still link our local machine to remix, meaning we can compile the contract with the version of vyper that exists on our compiler. This part would be the last bit of our tutorial. Think of it as the "freebie" for following the tutorial up to this point.
+
+So lets compile with the remote compile and deploy to the celo alfajores network, as this is only for "testing purposes":
+
+## (FREEBIE) Setting up the local compiler for remix
