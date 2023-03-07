@@ -47,7 +47,7 @@ In it's aim to provide a much more secure contract writing expere here are some 
 
 ## Vyper Language Overview
 
-Here's a quick overview of the vyper language syntax.
+Here's a quick overview of the vyper language syntax. [Official documentation](https://docs.vyperlang.org/en/stable/structure-of-a-contract.html)
 
 ### Data types
 
@@ -65,7 +65,7 @@ Here's a quick overview of the vyper language syntax.
     `b32: bytes32`
 - Bytes
     `bss: Bytes[100]` This means it can contain only 100 items
-- String
+- String:
     `s: String[100]`  This means it can contain only 100 items
 - Struct: This is a group of variables
 
@@ -99,7 +99,10 @@ myMap: HashMap[address, uint256]
 maxTickets: Constanct(uint256) = 100
 ```
 
+Strings, Bytes and Arrays are set with fixed maximum lengths. To avoid infinite loops and to ensure safety of code.
 Vyper also has some inbuilt constants like `ZERO_ADDRESS`, `MAX_UINT256` etc.
+
+For more information on Vyper types check the official documentation link [here](https://docs.vyperlang.org/en/stable/types.html#types)
 
 ### Variables
 
@@ -125,6 +128,8 @@ Vyper also has some inbuilt constants like `ZERO_ADDRESS`, `MAX_UINT256` etc.
   - `block.timestamp`: timestamp when transaction was made
   - `tx-origin`: address of the original caller
 
+To learn more about variables follow link [here](https://docs.vyperlang.org/en/stable/constants-and-vars.html)
+
 ### Functions
 
 Functions in vyper as in solidity can also be called based on their visibility and can also be characterized according to their mutability.
@@ -146,6 +151,8 @@ Functions in vyper as in solidity can also be called based on their visibility a
        @external
         def sum(x: uint256, y: uint256) -> (uint256):
             return x + y
+
+For more information about functions in vypers check link [here](https://docs.vyperlang.org/en/stable/control-structures.html#functions)
 
 ### Constructor
 
@@ -176,7 +183,7 @@ The indexed keyword allows us to be able to filter out the event by a partiucula
     log Transfer(msg.sender, to, sell_order)
     ```
 
-To learn more about events and other possible uses of events check the vyper doc link [here]("")
+To learn more about events and other possible uses of events check the vyper doc link [here](https://docs.vyperlang.org/en/stable/event-logging.html)
 
 ### Error handling
 
@@ -198,8 +205,6 @@ if self.owner == msg.sender:
 ```
 
 Both options do the same thing, but raise might be a better choice if the condition you are trying to evaluate is much more complex
-
-To learn more about error handling check the doc [here]("")
 
 ## Writing the Contract in Vyper
 
@@ -456,6 +461,7 @@ Great you've written you first contract in Vyper. Cheers 🎉.
 ## Compiling And Deploying the Contract
 
 Compiling the contract is pretty straightforward once you have successfully installed vyper on your machine. All you just need to do is to run the command `vyper <pathToFile>`. The output you get is the bytecode of the contract.
+
 ![bycode](bytcode.png)
 
 Now let's go to [remix](remix.ethereum.org), create a new file, name it `marketplace.vy` and open it.
@@ -471,6 +477,7 @@ Now you might wonder, why do I have to install vyper on my machine when all it d
 1. The Vyper plugin on remix does not show a proper representation of the error messages if the code fails to compile unlike the local compiler on your machine.
 2. There have been cases of downtime for the remix compiler.
 3. Even remix warns us from using the remote compiler for production purposes, it clearly states it should be for testing purposes.
+
 ![warning](warning.png)
 
 Instead Remix suggests that we use our local compiler to compile our contracts instead, so we can still link our local machine to remix, meaning we can compile the contract with the version of vyper that exists on our compiler. This part would be the last bit of our tutorial. Think of it as the "freebie" for following the tutorial up to this point.
@@ -494,3 +501,5 @@ So lets deploy to the celo alfajores network using the compiled data from the re
 ![buy](assets/buyProduct.gif)
 
 ## (FREEBIE) Setting up the local compiler for remix
+
+**WIP**
