@@ -26,51 +26,46 @@ In it's aim to provide a much more secure contract writing expere here are some 
 Here's a quick overview of the vyper language syntax.
 
 ### Data types
+- Boolean -> True or False
+    `b: bool`
+- int128 -> -2**127 to  2**127 - 1
+    `i: int128)`
+- uint256 -> 0 to 2 **256 - 1
+    `u: uint256`
+- decimals -> -2**127 to  2**127 - 1. It supports up to 10 decimal places
+    `d: uint256`
+- address
+    `a: address`
+- bytes32
+    `b32: bytes32`
+- Bytes
+    `bss: Bytes[100]` This means it can contain only 100 items
+- String
+    `s: String[100]`  This means it can contain only 100 items
+- Struct
+    
+    struct Person:
+        name: String[100]
+        age: uint256
 
-    - Boolean -> True or False
-        `b: bool`
-    - int128 -> -2**127 to  2**127 - 1
-        `i: int128)`
-    - uint256 -> 0 to 2 **256 - 1
-        `u: uint256`
-    - decimals -> -2**127 to  2**127 - 1. It supports up to 10 decimal places
-        `d: uint256`
-    - address
-        `a: address`
-    - bytes32
-        `b32: bytes32`
-    - Bytes
-        `bss: public(Bytes[100])` This means it can contain only 100 items
-    - String
-        `s: public(String[100])`  This means it can contain only 100 items
-    - Struct
-        ```vyper
-        struct Person:
-            name: String[100]
-            age: uint256      
-        ```
-    - Arrays
-        ```python
-        <arrName>: <dataType>[<maxNumberofElements>]
-        # For example
-        myNums: uint256[100] 
-        ```
-    - Mapping
-        ```python
-        <mapName>: HashMap[<keyType>, <valueType>]
-        # For example
-        myMap: HashMap[address, uint256]
-        ```
+ - Arrays
+ 
+    <arrName>: <dataType>[<maxNumberofElements>]
+    # For example
+    myNums: uint256[100]
+    
+- Mapping
 
-    - Constants: Once set It can never be change
-        ```python
-        <constantName>: Constant(<type>) = <value>
+    <mapName>: HashMap[<keyType>, <valueType>]
+    # For example
+    myMap: HashMap[address, uint256]
+
+- Constants: once set It can never be change
         
-        # for example
-
-        maxTickets: Constanct(uint256) = 100
-        ```
-
+    <constantName>: Constant(<type>) = <value>
+    # For example
+    maxTickets: Constanct(uint256) = 100
+        
 Vyper also has some inbuilt constants like `ZERO_ADDRESS`, `MAX_UINT256` etc.
 
 ### Variables
@@ -101,49 +96,37 @@ Vyper also has some inbuilt constants like `ZERO_ADDRESS`, `MAX_UINT256` etc.
 
 ### Functions
 
-    ```python
     <mutability>
     <visibility>
     def <functionName>(<type>: <param>) -> (<returnType>):
         # code block
-    ```
 
 - mutability: ability to write to the the blockchain -> `@pure, @view, @payable` and if not specified it writes to the blockchain. To learn more about readabilty....
 
 - visibility: who can call the contract -> `@external, @internal`. It does not have the public or private visibility. internal only from inside this contract.
 
 ### Constructor
-
-    For constructors in vyper we use the `__init__` function to set the intial state of a contract on deploy
-
-    ```python
+For constructors in vyper we use the `__init__` function to set the intial state of a contract on deploy
 
     maxNoOfPlayers: public(uint256)
 
     @external
     def __init__(maxNo: uint256):
         self.maxNoOfPlayers = maxNo
-    
-    ```
 
 ### Events
 
 One common use of events is to send notifications to our user interfaces. Here is the implemenation in vyper
-    ```python
-    event <eventName>:
-        <param1>: <type>
-        <param2>: <type>
 
     # for example
     event Transfer:
         sender: indexed(address)
         receiver: indexed(address)
         value: uint256
-    ```
 
-    The indexed keyword allows us to be able to filter out the event by a partiucular value and in this case we can filter by the sender address or the receiver address
+The indexed keyword allows us to be able to filter out the event by a partiucular value and in this case we can filter by the sender address or the receiver address
 
-    - To call events
+- To call events
     ```python
     # Log the sell event.
     log Transfer(msg.sender, to, sell_order)
@@ -153,7 +136,7 @@ To learn more about events and other possible uses of events check the vyper doc
 
 ### Error handling
 
-    Say we wanted to set a condition for a transaction to be valid in solidity, we'd use the require statement. In vyper we have many ways of handling this action. The most common are `assert` and `raise`
+Say we wanted to set a condition for a transaction to be valid in solidity, we'd use the require statement. In vyper we have many ways of handling this action. The most common are `assert` and `raise`
 
     - assert
         ``` python
