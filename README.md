@@ -29,7 +29,7 @@ Here's a quick overview of the vyper language syntax.
 - Boolean -> True or False
     `b: bool`
 - int128 -> -2**127 to  2**127 - 1
-    `i: int128)`
+    `i: int128`
 - uint256 -> 0 to 2 **256 - 1
     `u: uint256`
 - decimals -> -2**127 to  2**127 - 1. It supports up to 10 decimal places
@@ -43,29 +43,37 @@ Here's a quick overview of the vyper language syntax.
 - String
     `s: String[100]`  This means it can contain only 100 items
 - Struct
-    
-    struct Person:
-        name: String[100]
-        age: uint256
+- 
+```
+struct Person:
+    name: String[100]
+    age: uint256
+```
 
  - Arrays
- 
-    <arrName>: <dataType>[<maxNumberofElements>]
-    # For example
-    myNums: uint256[100]
-    
+
+```
+<arrName>: <dataType>[<maxNumberofElements>]
+# For example
+myNums: uint256[100]
+```    
+
 - Mapping
 
-    <mapName>: HashMap[<keyType>, <valueType>]
-    # For example
-    myMap: HashMap[address, uint256]
+```
+<mapName>: HashMap[<keyType>, <valueType>]
+# For example
+myMap: HashMap[address, uint256]
+```
 
 - Constants: once set It can never be change
-        
-    <constantName>: Constant(<type>) = <value>
-    # For example
-    maxTickets: Constanct(uint256) = 100
-        
+
+``` 
+<constantName>: Constant(<type>) = <value>
+# For example
+maxTickets: Constanct(uint256) = 100
+```
+
 Vyper also has some inbuilt constants like `ZERO_ADDRESS`, `MAX_UINT256` etc.
 
 ### Variables
