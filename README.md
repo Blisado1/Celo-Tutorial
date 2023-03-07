@@ -5,21 +5,21 @@
 Vyper is a Pythonic smart contract programming language created in 2017 as a readable and secure alternative to Solidity for writing EVM smart contracts. It was designed to improve upon Solidity, by limiting unsafe practices and enhancing readability; Vyper seeks to optimize the security and auditability of smart contract and also to make it virtually impossible for developers to code misleading programs.
 
 Following are the features of Vyper:
-    - Bounds and overflow checking: On array accesses and arithmetic.
-    - Support for signed integers and decimal fixed-point numbers
-    - Decidability: It is possible to compute a precise upper bound for the gas consumption of any Vyper function call.
-    - Strong typing
-    - Small and understandable compiler code
-    - Limited support for pure functions: Anything marked constant is not allowed to change the state.
+- Bounds and overflow checking: On array accesses and arithmetic.
+- Support for signed integers and decimal fixed-point numbers
+- Decidability: It is possible to compute a precise upper bound for the gas consumption of any Vyper function call.
+- Strong typing
+- Small and understandable compiler code
+- Limited support for pure functions: Anything marked constant is not allowed to change the state.
 
 Vyper vs Solidity:
 In it's aim to provide a much more secure contract writing expere here are some of the Solidity features which Vyper omits:
-    - Overflow
-    - Unbounded arrays
-    - Infinite Loops
-    - Modifiers
-    - Inheritance
-    - Assembly support
+- Overflow
+- Unbounded arrays
+- Infinite Loops
+- Modifiers
+- Inheritance
+- Assembly support
 
 ## Vyper Language Overview
 
