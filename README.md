@@ -53,11 +53,11 @@ Here's a quick overview of the vyper language syntax.
 
 - Boolean -> True or False
     `b: bool`
-- int128 -> -2**127 to  2**127 - 1
+- int128 -> -2^127 to  2^127 - 1
     `i: int128`
-- uint256 -> 0 to 2 **256 - 1
+- uint256 -> 0 to 2^256 - 1
     `u: uint256`
-- decimals -> -2**127 to  2**127 - 1. It supports up to 10 decimal places
+- decimals -> -2^127 to  2^127 - 1. It supports up to 10 decimal places
     `d: uint256`
 - address
     `a: address`
@@ -117,8 +117,6 @@ Vyper also has some inbuilt constants like `ZERO_ADDRESS`, `MAX_UINT256` etc.
 
         self.name
 
-- Local variables are the ones we can find in functions
-
 - Enviromental variables in Vyper
   - `self.balance`: returns the contract balance
   - `msg.sender`: returns the sender of a transaction
@@ -139,15 +137,14 @@ Functions in vyper as in solidity can also be called based on their visibility a
 - mutability: This basically means ability to write to the the blockchain. There are four mutability decorators in vyper:
 
   - `@pure`: does not read from the contract state or any environment variables.
-  -`@view`: may read from the contract state, but does not alter it.
+  - `@view`: may read from the contract state, but does not alter it.
   - `nonpayable`: may read from and write to the contract state, but cannot receive Ether. Functions are set to `nonpayable` when no mutability decorator is used.
   - `@payable`: may read from and write to the contract state, and can receive Ether.
 
 - visibility: functions with the `@external` decorator can only be called from transactions and other smart contracts, while the functions with the `@internal`  decorator can only be called from inside this contract.
-
-    @external
-    def sum(x: uint256, y: uint256) -> (uint256):
-        return x + y
+        @external
+        def sum(x: uint256, y: uint256) -> (uint256):
+            return x + y
 
 ### Constructor
 
