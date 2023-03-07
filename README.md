@@ -88,8 +88,7 @@ Vyper also has some inbuilt constants like `ZERO_ADDRESS`, `MAX_UINT256` etc.
 
 - to access state variables, we use `self.<variableName>`
 
-        ```python
-        self.name```
+        self.name
 
 - Local variables are the ones we can find in functions
 
