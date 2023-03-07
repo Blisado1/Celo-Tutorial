@@ -334,6 +334,12 @@ def writeProduct(_name: String[100], _image: String[100], _description: String[1
     self.productsLength += 1
 ```
 
+From the vyper syntax overview we should be able to understand how this function is defined. Let's go over it again.
+
+- First the function is defined with the `@external` visibility decorator i.e. can be called from transactions and other smartcontracts but no mutability decorator which means it's a non-payable function i.e. **allows read and write but does not receive ether**.
+- Next it has 6 parameters being passed into the function. No return value so it returns void.
+- Inside the function, a uint256 variable is initialized as 0, and the `productslength` state variable is accessed using `self`. Next a new entry is created in the products mapping also accessed using `self`. and lastly the productslength is updated.
+
 Let's define the `readProduct` function
 
 ```vyper
@@ -351,6 +357,9 @@ def readProduct(_index: uint256)->(address, String[100], String[100], String[100
     )
 ```
 
+- The `readProduct` function is a read only function as it is defined with the `@view` mutability decorator, it also has the `@external` visibility decorator.
+- The function takes in the index which is used to query the mapping and returns the product values.
+
 Let's define the `buyProduct` function
 
 ```vyper
@@ -364,6 +373,9 @@ def buyProduct(_index: uint256):
     self.products[_index].sold += 1
 ```
 
+- The `buyProduct` function is defined with the `@payable` mutability decorator and also has the `@external` visibility decorator this basically means it can receive ether or in our case CELO.
+- Inside the function, a check is run to see if the amount sent corresponds with the price of the item, and I opted for `assert` but you can try to run it with the `raise` syntax as specified in the overview. It'll work just the same. Next the inbuilt function send is used to send the payment to the product owner, and lastly the products sold index is updated.
+
 Let's define the `getProductsLength` function
 
 ```vyper
@@ -372,5 +384,7 @@ Let's define the `getProductsLength` function
 def getProductsLength()->(uint256):
     return self.productsLength
 
-
 ```
+
+This function is a simple view function that returns the total number of products existing on the contract.
+
