@@ -78,13 +78,12 @@ Vyper also has some inbuilt constants like `ZERO_ADDRESS`, `MAX_UINT256` etc.
 - State Variables are variables that are stored on the blockchain
 
   - We can specify if a state variable is public by adding the key word `public`
-        ```python
+        
         # public variable
         name: public(uint256)
 
         # private variable
         password: String[20]
-        ```
 
 - to access state variables, we use `self.<variableName>`
 
