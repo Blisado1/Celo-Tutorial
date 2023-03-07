@@ -146,17 +146,20 @@ To learn more about events and other possible uses of events check the vyper doc
 
 Say we wanted to set a condition for a transaction to be valid in solidity, we'd use the require statement. In vyper we have many ways of handling this action. The most common are `assert` and `raise`
 
-    - assert
-        ``` python
-        # check if owner is msg.sender
-        assert self.owner == msg.sender, "!owner"
-        ```
-    - raise error
-        ``` python
-        # check if owner is msg.sender
-        if self.owner == msg.sender:
-            raise "!owner"
-        ```
+- assert
+
+``` 
+# check if owner is msg.sender
+assert self.owner == msg.sender, "!owner"
+```
+
+- raise error
+
+```
+# check if owner is msg.sender
+if self.owner == msg.sender:
+    raise "!owner"
+```
 
 Both options do the same thing, but raise might be a better choice if the condition you are trying to evaluate is much more complex
 
