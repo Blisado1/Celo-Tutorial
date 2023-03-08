@@ -1,6 +1,5 @@
 # Writing Your First Smart Contract In Vyper
 
-
 ## Table of Content
 - [Writing Your First Smart Contract In Vyper](#writing-your-first-smart-contract-in-vyper)
   - [Table of Content](#table-of-content)
@@ -8,6 +7,7 @@
   - [Tech Stack](#tech-stack)
   - [Prerequisites](#prerequisites)
   - [What Is Vyper?](#what-is-vyper)
+    - [Vyper vs Solidity:](#vyper-vs-solidity)
   - [Vyper Language Overview](#vyper-language-overview)
     - [Data Types](#data-types)
     - [Variables](#variables)
@@ -58,7 +58,7 @@ The following are the features of Vyper:
 - Small and understandable compiler code
 - Limited support for pure functions: Anything marked constant is not allowed to change the state.
 
-Vyper vs Solidity:
+### Vyper vs Solidity:
 In its aim to provide a much more secure contract writing experience here are some of the Solidity features that Vyper omits:
 
 - Overflow
