@@ -42,12 +42,12 @@ We will use the following tools and languages in this tutorial-
 
 ## Pre-requisites:
 
-- Basic knowledge of programming with Solidity
+- Basic knowledge of programming with Solidity(https://soliditylang.org/)
 - Basic knowledge of using Remix
 
 ## What Is Vyper?
 
-Vyper is a pythonic smart contract programming language. Created in 2017 as a readable and secure alternative to Solidity for writing EVM smart contracts. It was designed to improve upon Solidity, by limiting unsafe practices and enhancing readability; Vyper seeks to optimize the security and audibility of smart contracts and also to make it virtually impossible for developers to code misleading programs.
+Vyper is a pythonic smart contract programming language. It was created in 2017 as a readable and secure alternative to Solidity for writing EVM smart contracts. It was designed to improve upon Solidity, by limiting unsafe practices and enhancing readability; Vyper seeks to optimize the security and audibility of smart contracts and also to make it virtually impossible for developers to code misleading programs.
 
 The following are the features of Vyper:
 
@@ -68,7 +68,6 @@ In its aim to provide a much more secure contract writing experience here are so
 |3. Ease of Syntax| Easy to learn for Python programmers. | Easy to learn for C++ and JavaScript programmers. |
 |4. Creating Auction | Vyper can define errors using asserts & use external decorators. | Difficult process with the need for defending the functions alongside payable and if statements. |
 |5. Variable definition | Straightforward in vyper | Complicated and requires semi- colons. |
-
 |6. Withdrawal | No additional scripting required. | Trouble writing 'if' statements. |
 
 ## Vyper Language Overview:
@@ -126,7 +125,7 @@ Vyper also has some built-in constants like `ZERO_ADDRESS`, `MAX_UINT256` etc.
 
 For more information on Vyper types check the official documentation [here](https://docs.vyperlang.org/en/stable/types.html#types).
 
-### Variables
+### Variables:
 
 - State Variables are variables that are stored on the blockchain
 
@@ -153,7 +152,7 @@ For more information on Vyper types check the official documentation [here](http
 
 To learn more about variables in Vyper follow this [link](https://docs.vyperlang.org/en/stable/constants-and-vars.html).
 
-### Functions
+### Functions:
 
 Functions in Vyper as in Solidity can also be called based on their visibility and can also be characterized according to their mutability.
 ```
@@ -209,7 +208,7 @@ The indexed keyword allows us to be able to filter out the event by a particular
 
 To learn more about events and other possible uses of events check the Vyper doc link [here](https://docs.vyperlang.org/en/stable/event-logging.html)
 
-### Error handling
+### Error handling:
 
 Say we wanted to set a condition for a transaction to be valid in solidity, we'd use the *require* statement. In Vyper we have many ways of handling this action. The most common is `assert` and `raise`
 
@@ -480,7 +479,7 @@ def getProductsLength()->(uint256):
 
 Great you've written your first contract in Vyper. Cheers 🎉.
 
-## Compiling and Deploying the Contract
+## Compiling and Deploying the Contract:
 
 Compiling the contract is pretty straightforward once you have successfully installed Vyper on your machine. All you just need to do is to run the command `vyper <pathToFile>`. The output you get is the bytecode of the contract.
 
@@ -508,7 +507,7 @@ So let's deploy to the Celo Alfajores network using the compiled data from the r
 
 ![deploy](assets/deploy.gif)
 
-## Testing Smart Contract
+## Testing Smart Contract:
 
 - Testing the `writeProduct()` function
 
@@ -522,6 +521,6 @@ So let's deploy to the Celo Alfajores network using the compiled data from the r
 
 ![buy](assets/buyProduct.gif)
 
-## (Freebie) Setting up the Local Compiler for Remix
+## (Freebie) Setting up the Local Compiler for Remix:
 
 **WIP**
