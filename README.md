@@ -1,8 +1,8 @@
-# Writing Your First Smart Contract In Vyper
+# Writing Your First Smart Contract Using Vyper
 
-## Table of Content
+## Table of Contents:
 - [Writing Your First Smart Contract In Vyper](#writing-your-first-smart-contract-in-vyper)
-  - [Table of Content](#table-of-content)
+  - [Table of Contents](#table-of-content)
   - [Introduction](#introduction)
   - [Tech Stack](#tech-stack)
   - [Prerequisites](#prerequisites)
@@ -22,17 +22,17 @@
   - [Testing Smart Contract](#testing-smart-contract)
   - [(Freebie) Setting up the Local Compiler for Remix](#freebie-setting-up-the-local-compiler-for-remix)
 
-## Introduction
+## Introduction:
 
-In this tutorial, we will be learning about the Vyper programming language
+In this tutorial, we will learn about the Vyper programming language-
 
-- Learn about the Vyper syntax.
+- Learn about Vyper syntax.
 - Write a simple smart contract in Vyper.
 - Learn how to compile and deploy Vyper smart contracts.
 
-## Tech Stack
+## Tech Stack:
 
-We will use the following tools and languages in this tutorial
+We will use the following tools and languages in this tutorial-
 
 1. [Remix IDE](https://remix.ethereum.org/)
 2. [VS Code](https://code.visualstudio.com/)
@@ -40,39 +40,41 @@ We will use the following tools and languages in this tutorial
 4. [Vyper](https://docs.vyperlang.org/en/stable/)
 5. [Python](https://www.python.org/)
 
-## Prerequisites
+## Pre-requisites:
 
-- Basic knowledge of programming with Solidity
+- Basic knowledge of programming with Solidity(https://soliditylang.org/)
 - Basic knowledge of using Remix
 
 ## What Is Vyper?
 
-Vyper is a pythonic smart contract programming language created in 2017 as a readable and secure alternative to Solidity for writing EVM smart contracts. It was designed to improve upon Solidity, by limiting unsafe practices and enhancing readability; Vyper seeks to optimize the security and audibility of smart contracts and also to make it virtually impossible for developers to code misleading programs.
+Vyper is a pythonic smart contract programming language. It was created in 2017 as a readable and secure alternative to Solidity for writing EVM smart contracts. It was designed to improve upon Solidity, by limiting unsafe practices and enhancing readability; Vyper seeks to optimize the security and audibility of smart contracts and also to make it virtually impossible for developers to code misleading programs.
 
 The following are the features of Vyper:
 
 - Bounds and overflow checking: On array accesses and arithmetic.
-- Support for signed integers and decimal fixed-point numbers
+- Supports signed integers and decimal fixed-point numbers.
 - Decidability: It is possible to compute a precise upper bound for the gas consumption of any Vyper function call.
-- Strong typing
-- Small and understandable compiler code
+- Strong typing.
+- Small and understandable compiler code.
 - Limited support for pure functions: Anything marked constant is not allowed to change the state.
 
 ### Vyper vs Solidity:
 In its aim to provide a much more secure contract writing experience here are some of the Solidity features that Vyper omits:
 
-- Overflow
-- Unbounded arrays
-- Infinite Loops
-- Modifiers
-- Inheritance
-- Assembly support
+| Parameters- | Vyper- | Solidity- |
+|------------|-----|------|
+|1.Support| It is in the early stages & may offer poor support. | Support of solidity is widely available. |
+|2.Security| It has built- in asserts in Ether transfer functions. | Unchecked call return value. |
+|3. Ease of Syntax| Easy to learn for Python programmers. | Easy to learn for C++ and JavaScript programmers. |
+|4. Creating Auction | Vyper can define errors using asserts & use external decorators. | Difficult process with the need for defending the functions alongside payable and if statements. |
+|5. Variable definition | Straightforward in vyper | Complicated and requires semi- colons. |
+|6. Withdrawal | No additional scripting required. | Trouble writing 'if' statements. |
 
-## Vyper Language Overview
+## Vyper Language Overview:
 
 Here's a quick overview of the Vyper language syntax. [Official documentation](https://docs.vyperlang.org/en/stable/structure-of-a-contract.html)
 
-### Data Types
+### Data Types:
 
 - Boolean -> True or False
     `b: bool`
@@ -123,7 +125,7 @@ Vyper also has some built-in constants like `ZERO_ADDRESS`, `MAX_UINT256` etc.
 
 For more information on Vyper types check the official documentation [here](https://docs.vyperlang.org/en/stable/types.html#types).
 
-### Variables
+### Variables:
 
 - State Variables are variables that are stored on the blockchain
 
@@ -150,7 +152,7 @@ For more information on Vyper types check the official documentation [here](http
 
 To learn more about variables in Vyper follow this [link](https://docs.vyperlang.org/en/stable/constants-and-vars.html).
 
-### Functions
+### Functions:
 
 Functions in Vyper as in Solidity can also be called based on their visibility and can also be characterized according to their mutability.
 ```
@@ -174,7 +176,7 @@ Functions in Vyper as in Solidity can also be called based on their visibility a
 ```
 For more information about functions in Vyper, follow this [link](https://docs.vyperlang.org/en/stable/control-structures.html#functions).
 
-### Constructor
+### Constructor:
 
 For constructors in vyper we use the `__init__` function to set the intial state of a contract on deploy
 ```
@@ -184,7 +186,7 @@ For constructors in vyper we use the `__init__` function to set the intial state
     def __init__(maxNo: uint256):
         self.maxNoOfPlayers = maxNo
 ```
-### Events
+### Events:
 
 One common use of events is to send notifications to our user interfaces. Here is the implementation in Vyper
 
@@ -206,7 +208,7 @@ The indexed keyword allows us to be able to filter out the event by a particular
 
 To learn more about events and other possible uses of events check the Vyper doc link [here](https://docs.vyperlang.org/en/stable/event-logging.html)
 
-### Error handling
+### Error handling:
 
 Say we wanted to set a condition for a transaction to be valid in solidity, we'd use the *require* statement. In Vyper we have many ways of handling this action. The most common is `assert` and `raise`
 
@@ -225,9 +227,9 @@ Say we wanted to set a condition for a transaction to be valid in solidity, we'd
 
 Both options do the same thing, but **raise** might be a better choice if the condition you are trying to evaluate is much more complex.
 
-## Writing the Contract in Vyper
+## Writing the Contract in Vyper:
 
-### Setting up Environment
+### Setting up Environment:
 
 Vyper requires Python 3.6 or higher installed on your machine, you can check if Python is installed or not by entering the following command in your terminal:
 
@@ -269,7 +271,7 @@ You can check if Vyper has been installed successfully by typing the following i
 vyper --version
 ```
 
-### Contract
+### Contract:
 
 Now that you're done setting up, let's move on to the contract. We're going to be rewriting the [Celo 101 solidity contract](https://github.com/dacadeorg/celo-development-101/blob/main/code/celo101-code-chapter_2/2-7-transactions-and-erc20-interface/marketplace.sol) which is in Solidity to Vyper.
 
@@ -477,7 +479,7 @@ def getProductsLength()->(uint256):
 
 Great you've written your first contract in Vyper. Cheers 🎉.
 
-## Compiling and Deploying the Contract
+## Compiling and Deploying the Contract:
 
 Compiling the contract is pretty straightforward once you have successfully installed Vyper on your machine. All you just need to do is to run the command `vyper <pathToFile>`. The output you get is the bytecode of the contract.
 
@@ -505,7 +507,7 @@ So let's deploy to the Celo Alfajores network using the compiled data from the r
 
 ![deploy](assets/deploy.gif)
 
-## Testing Smart Contract
+## Testing Smart Contract:
 
 - Testing the `writeProduct()` function
 
@@ -519,6 +521,6 @@ So let's deploy to the Celo Alfajores network using the compiled data from the r
 
 ![buy](assets/buyProduct.gif)
 
-## (Freebie) Setting up the Local Compiler for Remix
+## (Freebie) Setting up the Local Compiler for Remix:
 
 **WIP**
